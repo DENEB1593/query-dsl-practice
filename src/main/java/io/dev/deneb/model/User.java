@@ -22,7 +22,7 @@ public class User {
     private Boolean disabled;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private Set<BlogPost> blogPosts = new HashSet<>(0);
+    private Set<Post> posts = new HashSet<>(0);
 
 
     public User() { }

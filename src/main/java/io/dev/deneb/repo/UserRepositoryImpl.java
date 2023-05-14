@@ -14,6 +14,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.Objects;
 
+import static io.dev.deneb.model.QPost.post;
 import static io.dev.deneb.model.QUser.user;
 
 @Repository
@@ -36,6 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
         return query
             .select(user)
             .from(user)
+            .leftJoin(user.posts, post).on(user.id.eq(post.user.id))
             .where(user.id.eq(id))
             .fetchOne();
     }
