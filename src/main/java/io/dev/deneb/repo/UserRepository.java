@@ -8,5 +8,8 @@ public interface UserRepository {
 
     User findById(Long id);
 
+    User findByConditions(String email, boolean disabled);
+
+
 
 }
